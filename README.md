@@ -3,6 +3,11 @@ HousePrices
 
 Kaggle competition - predict sales prices of houses sold in Ames, Iowa
 
+<p>Project based on the <a target="_blank" href="https://drivendata.github.io/cookiecutter-data-science/">cookiecutter data science project template</a>. #cookiecutterdatascience</p>
+
+Project structure will be scaled down to accommodate this small project.
+
+
 Project Organization
 ------------
 
@@ -10,9 +15,9 @@ Project Organization
     ├── Makefile           <- Makefile with commands like `make data` or `make train`
     ├── README.md          <- The top-level README for developers using this project.
     ├── data
-    │   ├── external       <- Data from third party sources.
+    │   ├── external       <- /
     │   ├── interim        <- Intermediate data that has been transformed.
-    │   ├── processed      <- The final, canonical data sets for modeling.
+    │   ├── processed      <- /
     │   └── raw            <- The original, immutable data dump.
     │
     ├── docs               <- A default Sphinx project; see sphinx-doc.org for details
@@ -53,4 +58,4 @@ Project Organization
 
 --------
 
-<p><small>Project based on the <a target="_blank" href="https://drivendata.github.io/cookiecutter-data-science/">cookiecutter data science project template</a>. #cookiecutterdatascience</small></p>
+
