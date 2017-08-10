@@ -72,8 +72,7 @@ def visualize_features(df, features, target, ncols, figsize, nplots_per_page, ou
         i = i + nplots_per_page
     pdf_pages.close()
     
-    
-########################################################################################    
+        
 
 @click.command()
 @click.argument('input_filepath', type=click.Path(exists=True))

@@ -1,4 +1,4 @@
-.PHONY: clean data visual lint requirements sync_data_to_s3 sync_data_from_s3
+.PHONY: clean data init_visual lint requirements sync_data_to_s3 sync_data_from_s3
 
 #################################################################################
 # GLOBALS                                                                       #
@@ -29,18 +29,23 @@ requirements: test_environment
 
 ## Make Dataset
 data: 
-	$(PYTHON_INTERPRETER) src/data/make_dataset.py $(IN) $(OUT)
-
-## Make Dataset
-## data: requirements
-##	$(PYTHON_INTERPRETER) src/data/make_dataset.py
-
+	$(PYTHON_INTERPRETER) src/data/make_dataset.py $(IN)
 
 ## Make initial visualization
-visual: 
+init_visual: 
 	$(PYTHON_INTERPRETER) src/visualization/visualize.py $(IN) $(OUT)
 
+## Make feature building
+features:
+	$(PYTHON_INTERPRETER) src/features/build_features.py $(IN) $(OUT) --mode=$(MODE) 
 
+## Make model training and evaluation
+evaluate:
+	$(PYTHON_INTERPRETER) src/models/evaluate_model.py $(IN)
+
+## Make model training and predictions
+predict:
+	$(PYTHON_INTERPRETER) src/models/predict_model.py $(TRAIN) $(TEST) $(OUT)
 
 ## Delete all compiled Python files
 clean:
