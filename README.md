@@ -3,6 +3,8 @@ HousePrices
 
 Kaggle competition - predict sales prices of houses sold in Ames, Iowa
 
+Source code documentation under : https://fmassen.github.io/houseprices/
+
 <p>Project based on the <a target="_blank" href="https://drivendata.github.io/cookiecutter-data-science/">cookiecutter data science project template</a>. #cookiecutterdatascience</p>
 
 Project Organization
