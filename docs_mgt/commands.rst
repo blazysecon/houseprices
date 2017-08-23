@@ -8,7 +8,7 @@ Preparing the data
 * `make features` will clean and transform the indicated file ($IN) and output the cleaned data in CSV format to the indicated ($OUT) path. There are different modes ($MODE):
 	- train : data will be cleaned, transformed and outliers will be removed
 	- eval : data will be cleaned and transformed
-	- test : data will be cleaned and transformed
+	- test : data will be cleaned and transformed 
 
 Evaluating the model
 ^^^^^^^^^^^^^^^^^^^^
@@ -25,4 +25,4 @@ Visualizing the data
 ^^^^^^^^^^^^^^^^^^^^
 * `make visualize` will take the input data ($IN) and plot the features against the target (the SalePrice) and print the plots to a PDF file ($OUT). There are two different modes:
 	- features : all features are plotted in described fashion
-	- score : all features are plotted in described fashion and the points are coloured in function of the additional data column ‘Score’
+	- score : all features are plotted in described fashion and the points are coloured in function of the additional data column ‘Score’ 
