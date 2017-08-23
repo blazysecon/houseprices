@@ -74,3 +74,4 @@ target/
 
 # Mac stuff
 .DS_Store
+.gitignore
