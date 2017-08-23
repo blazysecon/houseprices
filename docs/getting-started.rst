@@ -1,6 +1,8 @@
 Getting started
 ===============
 
-This is where you describe how to get set up on a clean install, including the
-commands necessary to get the raw data (using the `sync_data_from_s3` command,
-for example), and then how to make the cleaned, final data sets.
+Train and test data sets should be downloaded from Kaggle (https://www.kaggle.com/c/house-prices-advanced-regression-techniques) and put into data/raw/.
+Next the data needs to be prepared. Then the model can be evaluated on the training set or used to produce predictions on the test set. A small set of visualisations can also be created.
+
+All commands are described under “Commands”
+

@@ -6,19 +6,11 @@
 HousePrices documentation!
 ==============================================
 
-Contents:
-
 .. toctree::
    :maxdepth: 2
 
    getting-started
    commands
+   modules_classes
 
 
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
