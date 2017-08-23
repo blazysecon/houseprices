@@ -1,4 +1,4 @@
-.PHONY: clean data init_visual lint requirements sync_data_to_s3 sync_data_from_s3
+.PHONY: clean data features evaluate predict visualize lint requirements 
 
 #################################################################################
 # GLOBALS                                                                       #
@@ -27,13 +27,9 @@ export LANG=en_GB.utf-8
 requirements: test_environment
 	pip install -r requirements.txt
 
-## Make Dataset
-data: 
-	$(PYTHON_INTERPRETER) src/data/make_dataset.py $(IN)
-
-## Make initial visualization
-init_visual: 
-	$(PYTHON_INTERPRETER) src/visualization/visualize.py $(IN) $(OUT)
+## Generate plots
+visualize: 
+	$(PYTHON_INTERPRETER) src/visualization/visualize.py $(IN) $(OUT) --mode=$(MODE)
 
 ## Make feature building
 features:
@@ -41,7 +37,7 @@ features:
 
 ## Make model training and evaluation
 evaluate:
-	$(PYTHON_INTERPRETER) src/models/evaluate_model.py $(IN)
+	$(PYTHON_INTERPRETER) src/models/evaluate_model.py $(IN) $(OUT) $(ORIGINAL)
 
 ## Make model training and predictions
 predict:
@@ -55,21 +51,6 @@ clean:
 lint:
 	flake8 --exclude=lib/,bin/,docs/conf.py .
 
-## Upload Data to S3
-sync_data_to_s3:
-ifeq (default,$(PROFILE))
-	aws s3 sync data/ s3://$(BUCKET)/data/
-else
-	aws s3 sync data/ s3://$(BUCKET)/data/ --profile $(PROFILE)
-endif
-
-## Download Data from S3
-sync_data_from_s3:
-ifeq (default,$(PROFILE))
-	aws s3 sync s3://$(BUCKET)/data/ data/
-else
-	aws s3 sync s3://$(BUCKET)/data/ data/ --profile $(PROFILE)
-endif
 
 ## Set up python interpreter environment
 create_environment:
@@ -89,9 +70,6 @@ else
 	@echo ">>> New virtualenv created. Activate with:\nworkon $(PROJECT_NAME)"
 endif
 
-## Test python environment is setup correctly
-test_environment:
-	$(PYTHON_INTERPRETER) test_environment.py
 
 #################################################################################
 # PROJECT RULES                                                                 #
